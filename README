@@ -1,0 +1,34 @@
+GENERAL INFORMATIONS
+====================
+
+This software aims to provide an implementation of the famous Italian
+card game "Scopa" (https://en.wikipedia.org/wiki/Scopa). It is written
+in Javascript and can be run in the browser for testing.
+This server wil be later used to communicate with a Unity mobile app.
+It provides 5 variations of the original game and 3 types of cards.
+
+USAGE
+=====
+Run following command to install the http-server module globally:
+
+  npm install -g http-server
+
+Run the following command to serve a local http server over the port 80:
+
+  http-server -p 80
+
+
+Game is playable at (http://127.0.0.1)
+
+
+BUILDING AND RUNNING THE SERVER
+===============================
+
+The online server requires node.js and the ws module (https://github.com/websockets/ws).
+
+Run it with the following command:
+
+  node Server/server.js
+
+
+

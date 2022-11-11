@@ -1,0 +1,4 @@
+.directory 
+**/build/
+/tests.html
+/Server/node_modules

@@ -1,0 +1,374 @@
+/**
+ *
+ * Copyright (C) 2016 Marco Scarpetta
+ * 
+ * This file is part of Scopa.
+ * 
+ * Scopa is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * Scopa is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with Scopa.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+:root {
+    --w: 100vw;
+    --h: 100vh;
+    --ch: 113px;
+    --cw: 65px;
+    --cn: 3;
+    --s: 50px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    overflow: hidden;
+    font-family:sans-serif;
+}
+
+div, table, td, tr, body {
+    margin: 0px 0px;
+    padding: 0px 0px;
+}
+
+/*game table and cards*/
+.table td {
+    background: rgba(1, 1, 1, 0.1);
+}
+
+.table td.center {
+    background: none;
+}
+
+.table {
+    width: calc(var(--w));
+    height: calc(var(--h));
+    position:relative;
+    text-align: center;
+}
+
+.deck {
+    display: inline-block;
+    width: calc(2 * var(--cw));
+    height: var(--ch);
+}
+
+.cv3 {
+    display: inline-block;
+    width: var(--cw);
+    height: calc((var(--h) - 3 * var(--ch) - 2 * var(--s)) / 2);
+    max-height: calc(var(--ch) + var(--s));
+}
+
+.cv10 {
+    display: inline-block;
+    width: var(--cw);
+    height: calc((var(--h) - 3 * var(--ch) - 2 * var(--s)) / 9);
+    max-height: calc(var(--ch) + var(--s));
+}
+
+.ch3 {
+    display: inline-block;
+    width: calc((var(--w) - 5 * var(--cw) - 2 * var(--s)) / 2);
+    max-width: calc(var(--cw) + var(--s));
+    height: var(--ch);
+}
+
+.ch10 {
+    display: inline-block;
+    width: calc((var(--w) - 5 * var(--cw) - 2 * var(--s)) / 9);
+    max-width: calc(var(--cw) + var(--s));
+    height: var(--ch);
+}
+
+.card {
+    display: inline-block;
+    width: var(--cw);
+    height: var(--ch);
+}
+
+.ccv {
+    display: inline-block;
+    height: calc((var(--h) - 3 * var(--ch) - 2 * var(--s)));
+    max-height: calc(var(--ch) + var(--s))
+}
+
+.cch {
+    display: inline-block;
+    width: calc((var(--w) - 5 * var(--cw) - 2 * var(--s)) / 4);
+    max-width: calc(var(--cw) + var(--s))
+}
+
+.fixedCard {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+}
+
+.fixedDeck {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+}
+
+.userCard:hover {
+    box-shadow: #ed0 0px 0px 5px 5px;
+}
+
+/*notifications*/
+@keyframes message {
+    0% {opacity: 1;}
+    10% {opacity: 1; box-shadow: #f00 0px 0px 5px 5px;}
+    20% {opacity: 1;}
+    95% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+#messages {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 90;
+    float: right;
+    display: block;
+    text-align: right;
+}
+
+#messages > label {
+    display: inline-block;
+    padding: 20px;
+    margin: 10px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+/*all windows*/
+.dialog {
+    background: rgba(0,0,0,0.3);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 100;
+}
+
+.modal {
+    z-index: 120;
+}
+
+.window {
+    max-height: calc(0.9 * var(--h));
+    max-width: calc(var(--w) - 0.1 * var(--h));
+    padding: 0px 0px;
+    margin: calc(0.05 * var(--h));
+    background-color: #ddd;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 5px 5px;
+    display: inline-block;
+}
+
+.titlebar {
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    flex-direction: row;
+}
+
+.titlebar > *:first-child {
+    flex-grow: 100;
+    padding: 0px 20px;
+}
+
+.titlebar > *:last-child {
+    flex-grow: 0;
+}
+
+.content {
+    max-height: calc(0.9 * var(--h) - 80px);
+    max-width: calc(var(--w) - 0.1 * var(--h) - 40px);
+    padding: 20px 20px;
+    text-align: left;
+    overflow: auto;
+    background-color: #fff;
+}
+
+.content > * {
+    margin: 10px;
+}
+
+/*login-register window*/
+#server_name {
+    font-weight: bold;
+    margin: 0px 0px;
+    padding: 0px 0px;
+}
+
+.error {
+    border: 2px solid red;
+    padding: 10px 10px;
+    display: block;
+}
+
+.success {
+    border: 2px solid green;
+    padding: 10px 10px;
+    display: block;
+}
+
+/*new-online-match window*/
+#team1 > label, #team2 > label {
+    display: block;
+    padding: 5px 5px;
+    border-left: 5px solid #3DAEE9;
+    margin: 5px 0px;
+}
+
+label[data-cpu='true'] {
+    border-left: 5px solid red;
+}
+
+#team1, #team2 {
+    border: 1px solid #444;
+    padding: 5px 5px;
+    margin: 10px 0px;
+}
+
+.available {
+    background-image:url(data/available.svg);
+}
+
+.busy {
+    background-image:url(data/busy.svg);
+}
+
+.offline {
+    background-image:url(data/offline.svg);
+}
+
+#players > option {
+    height: 30px;
+    background-repeat: no-repeat;
+    text-indent: 30px;
+}
+
+/*help window*/
+#help-content {
+    max-height: calc(0.9 * var(--h) - 40px);
+    max-width: calc(var(--w) - 0.1 * var(--h));
+    height: calc(0.9 * var(--h) - 40px);
+    width: calc(var(--w) - 0.1 * var(--h));
+    padding: 0px 0px;
+    margin: 0px 0px;
+}
+
+#help-content > iframe {
+    padding: 0px 0px;
+    margin: 0px 0px;
+}
+
+/*settings window*/
+.backgroundPreview {
+    display: inline-block;
+    width: calc((var(--w) / 4));
+    height: calc((var(--h) / 10));
+}
+
+/*move choice window*/
+.choice-div {
+    display: inline-block;
+    background: #ddd;
+    margin: 10px 10px;
+    padding: 10px 10px;
+    border: 1px solid #999;
+}
+
+.choice-div > img {
+    padding: 10px;
+}
+
+/*summary windows*/
+#summary td {
+    padding: 2px 10px;
+    border: 2px solid #ddf;
+}
+
+#summary td:not(:first-child) {
+    text-align: center;
+}
+
+#summary table {
+    border-collapse: collapse;
+}
+
+#summary tr:first-child {
+    background: #eee;
+}
+
+#summary tr:nth-last-child(2) {
+    background: #dff;
+}
+
+#summary tr:last-child {
+    background: #cff;
+}
+
+/*buttons*/
+.button {
+    display: block;
+    padding: 0px 0px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    background-image: url('data/close.svg');
+    background-size: cover;
+    float: right;
+}
+
+/*menu button*/
+#menu-btn {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background-image: url('data/menu.svg');
+    background-size: cover;
+    z-index: 110;
+}
+
+/*menu*/
+.menu {
+    position: fixed;
+    background: #fff;
+    bottom: 40px;
+    left: 0px;
+    z-index: 110;
+}
+
+.menu > label {
+    display: block;
+    background: #fff;
+    padding: 10px 10px;
+}
+
+.menu > label:hover {
+    background: #ddd;
+}

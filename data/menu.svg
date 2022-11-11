@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+    Copyright (C) 2016 Marco Scarpetta
+
+    This file is part of Scopa.
+
+    Scopa is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Scopa is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Scopa.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<svg width="40" height="40"
+     viewBox="0 0 40 40"
+     xmlns="http://www.w3.org/2000/svg">
+
+    <rect x="5" y="10" width="30" height="4" style="fill: black"/>
+    <rect x="5" y="18" width="30" height="4" style="fill: black"/>
+    <rect x="5" y="26" width="30" height="4" style="fill: black"/>
+</svg>
