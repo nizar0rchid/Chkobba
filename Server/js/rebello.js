@@ -36,7 +36,8 @@ function ReBelloMatch() {
         [2, 2]
     ];
     this.victoryPoints = 11;
-    this.assignedPoints = ["cards", "primiera", "seven_of_coins", "coins", "re_bello"];
+    this.assignedPoints = ["Carta", "Bermila", "Haya", "Dineri", "re_bello"];
+
 
     var classic = new ClassicMatch();
     this.aiValues = classic.aiValues;

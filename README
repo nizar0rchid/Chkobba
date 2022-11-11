@@ -28,7 +28,7 @@ The online server requires node.js and the ws module (https://github.com/websock
 
 Run it with the following command:
 
-  node Server/server.js
+  node .\Server\app.js
 
 
 
